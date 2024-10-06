@@ -7,16 +7,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +35,6 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + ", email='" + email + '\'' + '}';
     }
 }

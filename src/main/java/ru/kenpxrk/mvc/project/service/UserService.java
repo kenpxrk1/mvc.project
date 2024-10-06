@@ -1,5 +1,7 @@
 package ru.kenpxrk.mvc.project.service;
 
+import ru.kenpxrk.mvc.project.dto.UserPatchDto;
+import ru.kenpxrk.mvc.project.dto.UserPostDto;
 import ru.kenpxrk.mvc.project.model.UserEntity;
 
 import java.util.List;
@@ -7,11 +9,11 @@ import java.util.List;
 public interface UserService {
     List<UserEntity> findAll();
 
-    UserEntity findUserById();
+    UserEntity findUserById(Long id);
 
-    void addUser();
+    void addUser(UserPostDto userPostDto);
 
-    void updateUser();
+    void updateUser(UserPatchDto userPatchDto, Long id);
 
-    void deleteUser();
+    void deleteUser(Long id);
 }
