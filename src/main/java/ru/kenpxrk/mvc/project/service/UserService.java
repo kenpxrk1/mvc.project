@@ -1,6 +1,5 @@
 package ru.kenpxrk.mvc.project.service;
 
-import ru.kenpxrk.mvc.project.dto.UserPatchDto;
 import ru.kenpxrk.mvc.project.dto.UserPostDto;
 import ru.kenpxrk.mvc.project.model.UserEntity;
 
@@ -13,7 +12,7 @@ public interface UserService {
 
     void addUser(UserPostDto userPostDto);
 
-    void updateUser(UserPatchDto userPatchDto, Long id);
+    void updateUser(UserPostDto userPatchDto, Long id);
 
     void deleteUser(Long id);
 }

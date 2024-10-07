@@ -1,7 +1,6 @@
 package ru.kenpxrk.mvc.project.controller;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.kenpxrk.mvc.project.dto.UserPatchDto;
 import ru.kenpxrk.mvc.project.dto.UserPostDto;
 import ru.kenpxrk.mvc.project.model.UserEntity;
 import ru.kenpxrk.mvc.project.service.UserService;
 
-@Slf4j
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/users")
@@ -46,7 +44,7 @@ public class UserController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editUser(@ModelAttribute UserPatchDto user, @PathVariable Long id) {
+    public String editUser(@ModelAttribute UserPostDto user, @PathVariable Long id) {
         userService.updateUser(user, id);
         return "redirect:/users";
     }

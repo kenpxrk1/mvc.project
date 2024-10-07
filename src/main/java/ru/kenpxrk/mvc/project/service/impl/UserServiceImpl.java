@@ -1,10 +1,8 @@
 package ru.kenpxrk.mvc.project.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kenpxrk.mvc.project.dto.UserPatchDto;
 import ru.kenpxrk.mvc.project.dto.UserPostDto;
 import ru.kenpxrk.mvc.project.mapper.UserMapper;
 import ru.kenpxrk.mvc.project.model.UserEntity;
@@ -13,7 +11,7 @@ import ru.kenpxrk.mvc.project.service.UserService;
 
 import java.util.List;
 
-@Slf4j
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -41,13 +39,10 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void updateUser(UserPatchDto userPatchDto, Long id) {
+    public void updateUser(UserPostDto userPatchDto, Long id) {
         UserEntity userEntity = userRepository.findById(id).orElseThrow();
-        log.info("Data for update: {}", userPatchDto);
         mapper.updateUserEntityFromDto(userPatchDto, userEntity);
-        log.info("Updated entity: {}", userEntity);
         userRepository.save(userEntity);
-
     }
 
     @Transactional
